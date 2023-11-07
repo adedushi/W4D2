@@ -9,10 +9,11 @@ class Employee
     end
 
     def assign_boss(new_boss)
-        # self.boss = new_boss
-        # self.boss.employees << self
+        self.boss = new_boss
+        self.boss.employees << self
     end
 
 
 
 end
+
