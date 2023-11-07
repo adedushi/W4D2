@@ -19,12 +19,15 @@ class Board
     end
 
     def move_piece(start_pos, end_pos)
-       raise "Error no" if @rows[start_pos] == nil 
-       if end_pos.all?{|cord| cord >= 0 && cord < 8}
-            piece = @rows[start_pos] 
-            @rows[end_pos] = piece 
-            @rows[start_pos] = nil
+       raise "Error" if self[start_pos] == nil 
+       if end_pos.all?{|coord| coord >= 0 && coord < 8} && self[end_pos] == nil
+            piece = self[start_pos] 
+            self[end_pos] = piece
+            self[start_pos] = nil
+        else
+            raise "Error"
         end 
+        return self
     end
 end
 
