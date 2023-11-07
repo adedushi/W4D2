@@ -31,8 +31,3 @@ class Board
     end
 end
 
-# test = Board.new
-# p test
-# # pos = [0,1]
-# # p test[pos] = "A"
-# # p test
