@@ -1,13 +1,21 @@
 class Board 
+    attr_reader :rows
     def initialize
-        @board= Array.new(8) {Array.new(8) }
+        @rows = Array.new(8) {Array.new(8)}
     end
 
     def [](pos)
-        @board[pos[0]][pos[1]]
+        row, col = pos
+        @rows[row][col]
     end
 
-    def []=(pos,val)
-        @board[pos[0]][pos[1]] = val
+    def []=(pos, val)
+        @rows[pos[0]][pos[1]] = val
     end
+
 end
+
+test = Board.new
+pos = [0,1]
+p test[pos] = "A"
+p test
