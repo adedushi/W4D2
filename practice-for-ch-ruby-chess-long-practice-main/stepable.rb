@@ -1,9 +1,22 @@
 module Stepable 
     def moves
         array = []
-        
+            x, y = pos 
+            self.move_diffs.each do |move| 
+                dx, dy = move
+                new_move = [dx + x, dy + y]
+                if valid_moves.include?(new_move) && empty?(new_move)
+                    array << new_move 
+                # elsif !self.empty?(new_move)  && self.color != self.board(new_move).color
+                #     array<< new_move
+                #     break 
+                end
+            end
+    
+            array
+        end
     end
-end
+    
     # MOVES = [[1, 2], 
     #         [2, 1],
     #         [2, -1],

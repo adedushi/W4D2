@@ -14,7 +14,7 @@ class Piece
     end
 
     def empty?(new_pos)
-        new_pos == nil
+        board[new_pos] == nil
 
     end
 

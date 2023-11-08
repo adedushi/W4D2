@@ -25,6 +25,7 @@ module Slideable
             unblocked = grow_unblocked_moves_in_dir(coords[0],coords[1])
             move += unblocked
         end
+        return move
     end
 
 
