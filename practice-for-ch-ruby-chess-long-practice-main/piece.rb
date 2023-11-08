@@ -13,13 +13,8 @@ class Piece
     end
 
     def empty?(new_pos)
-        if new_pos == nil
-            temp = @pos
-            @pos = new_pos
-            temp = nil
-            return true
-        end
-        false
+        new_pos == nil
+
     end
 
     def valid_moves

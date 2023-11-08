@@ -3,6 +3,7 @@ module Slideable
     def diagonal_dirs
         DIAGNOL_DIRS
     end
+
     #     DIAGNOL_DIRS.each do |ele| 
     #         x, y = pos
     #         dx, dy = ele
@@ -20,21 +21,41 @@ module Slideable
     def moves
         move = [] 
         self.move_dirs do |coords|
-            grow_unblocked_moves_in_dir()
+            grow_unblocked_moves_in_dir(coords[0],coords[1])
+        end
     end
 
 
     private
     def grow_unblocked_moves_in_dir(dx,dy)
-        array=[] 
+
         x, y = self.pos
-        while self.valid_moves.include?()
-            x = x + dx 
-            y = y + dy 
-            array << [dx, dy]
+        x += dx
+        y += dy
+        array = []
+
+        if self.valid_moves.include?([x,y])
+            array << [x, y]
+        elsif !empty?([x,y]) && self.color != self.board[[x,y]].color
+            array << [x, y]    
+            return array          
         end
+
+        while self.valid_moves.include?(array[-1])
+            x += dx
+            y += dy
+            if empty?([x,y])
+                array << [x, y] 
+            elsif !empty?([x,y]) && self.color != self.board[[x,y]].color
+                array << [x, y]
+                break
+            end
+        end
+
         array 
     end
+
+
     HORIZONTAL_DIRS =
     [[1,0],
     [-1,0],
