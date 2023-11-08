@@ -20,8 +20,10 @@ class Piece
 
     def valid_moves
        valid = []
-       valid << @pos if self.pos.empty? && @pos.all?{|coord| coord < 8 && coord >= 0}
-       valid 
+         if self.pos.empty? && @pos.all?{|coord| coord < 8 && coord >= 0}
+            return true  
+    end
+       false 
     end
 
     def pos=(val)

@@ -5,15 +5,11 @@ require_relative 'slideable'
 class Rook < Piece
   include Slideable
 
-  def initialize(color, board, pos)
-    super
-  end
 
   def symbol
     '♜'.colorize(color)
   end
 
-  protected
 
   def move_dirs
     # return the directions in which a rook can move
