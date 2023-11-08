@@ -1,9 +1,9 @@
 require_relative 'Piece'
 class Board 
     attr_reader :rows
+    attr_writer :rows
     def initialize
         @rows = Array.new(8) {Array.new(8)}
-        populate
     end
 
     def [](pos)
@@ -27,7 +27,7 @@ class Board
         return self
     end
     def populate
-        @rows[0][0]= Rook.new(:black, board, [0,0])
+        @rows[0][ß0]= Rook.new("black", board, [0,0])
         @rows[0][1]= Knight.new(:black, board, [0,1])
         @rows[0][2]= Bishop.new(:black, board, [0,2]) 
         @rows[0][3]= Queen.new(:black, board, [0,3]) 

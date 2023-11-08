@@ -14,7 +14,7 @@ class Queen < Piece
 
   def move_dirs
     # return the directions in which a queen can move
-    horizontal_and_vertical_dirs + diagonal_dirs
+    horizonal_dirs + diagonal_dirs
     # a queen can move horizontally/vertically (across rows and cols) and diagonally
   end
 end

@@ -23,6 +23,6 @@ class King < Piece
       [-1, 1]
     ]
 
-    
+    return moves
   end
 end

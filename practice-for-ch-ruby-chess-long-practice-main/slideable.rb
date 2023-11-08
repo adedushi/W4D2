@@ -70,4 +70,8 @@ module Slideable
     [1,-1],
     [-1,1]].freeze
 
+    def move_dirs
+        raise NotImplementedError
+    end
+
 end
