@@ -27,6 +27,7 @@ class Knight < Piece
         dx, dy = move
         new_move = [dx + x, dy + y]
         array << new_move if valid_moves.include?(new_move)
+        # empty or valid and not own piece
     end
 
     array
