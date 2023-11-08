@@ -1,3 +1,4 @@
+
 module Slideable 
 
     def diagonal_dirs
@@ -21,7 +22,8 @@ module Slideable
     def moves
         move = [] 
         self.move_dirs do |coords|
-            grow_unblocked_moves_in_dir(coords[0],coords[1])
+            unblocked = grow_unblocked_moves_in_dir(coords[0],coords[1])
+            move += unblocked
         end
     end
 
@@ -34,7 +36,7 @@ module Slideable
         y += dy
         array = []
 
-        if self.valid_moves.include?([x,y])
+        if self.valid_moves.include?([x,y]) 
             array << [x, y]
         elsif !empty?([x,y]) && self.color != self.board[[x,y]].color
             array << [x, y]    
