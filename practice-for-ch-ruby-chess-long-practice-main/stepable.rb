@@ -1,3 +1,4 @@
+require "byebug"
 module Stepable 
     def moves
         array = []
@@ -5,11 +6,11 @@ module Stepable
             self.move_diffs.each do |move| 
                 dx, dy = move
                 new_move = [dx + x, dy + y]
-                if valid_moves.include?(new_move) && empty?(new_move)
+                if self.valid_moves(new_move).length >= 1 && self.empty?(new_move)
                     array << new_move 
-                # elsif !self.empty?(new_move)  && self.color != self.board(new_move).color
-                #     array<< new_move
-                #     break 
+                elsif !self.empty?(new_move) && self.color != self.board(new_move).color
+                    array << new_move
+                    break 
                 end
             end
     
